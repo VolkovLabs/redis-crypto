@@ -1,0 +1,31 @@
+{
+  "author": "Mikhail Volkov",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "coinbase-pro-node": "^3.0.5",
+    "ioredis": "^4.27.6",
+    "ts-node": "^10.0.0"
+  },
+  "description": "Analyzing stocks and crypto using Redis, Prophet and Grafana",
+  "devDependencies": {
+    "@types/ioredis": "^4.26.4",
+    "@types/node": "^16.0.0"
+  },
+  "license": "Apache-2.0",
+  "name": "redis-finance-prophet",
+  "scripts": {
+    "build": "tsc -p ./",
+    "import": "node src/import.js",
+    "predict:30": "redis-cli RG.PYEXECUTE \"`cat ./gears/predict30.py`\" REQUIREMENTS prophet",
+    "predict:365": "redis-cli RG.PYEXECUTE \"`cat ./gears/predict365.py`\" REQUIREMENTS prophet",
+    "predict:7": "redis-cli RG.PYEXECUTE \"`cat ./gears/predict7.py`\" REQUIREMENTS prophet",
+    "predict:90": "redis-cli RG.PYEXECUTE \"`cat ./gears/predict90.py`\" REQUIREMENTS prophet",
+    "redis-cli": "docker exec -it redis redis-cli",
+    "start": "docker-compose pull && docker-compose up",
+    "start:master": "docker-compose -f docker-compose/master.yml pull && docker-compose -f docker-compose/master.yml up",
+    "stop": "docker-compose down",
+    "stop:master": "docker-compose -f docker-compose/master.yml down",
+    "upgrade": "yarn upgrade --latest"
+  },
+  "version": "1.2.0"
+}
