@@ -21,7 +21,7 @@ Read the full store on Volkov Labs blog soon.
 
 ## Configure and start Coinbase application
 
-To start Coinbase application please provide Coinbase API credentials and URL for Redis instance in file `coinbase.env`. File `coinbase.env.sample` can be renamed and used to fill this data.
+To start Coinbase application please provide Coinbase API credentials and URL for Redis instance in file `coinbase.env`. File `coinbase.env.example` can be used as example.
 
 ```bash
 ## Coinbase API
@@ -62,6 +62,20 @@ docker run -p 6379:6379 --name=redis-prophet ghcr.io/redisgrafana/redis-prophet:
 ```
 
 This container can be started using Docker Compose with Grafana or Redis Enterprise cluster can be used instead.
+
+## Start Coinbase application on Linux with Redis and Grafana pre-installed
+
+```yaml
+version: "3.4"
+
+services:
+  coinbase:
+    container_name: coinbase
+    image: ghcr.io/redisgrafana/coinbase-app:latest
+    network_mode: host
+    env_file:
+      - ./coinbase.env
+```
 
 ## Learn more
 
