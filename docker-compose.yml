@@ -2,18 +2,19 @@ version: "3.4"
 
 services:
   coinbase:
-    container_name: redis-coinbase
-    image: ghcr.io/redisgrafana/redis-coinbase:latest
+    container_name: coinbase
+    image: ghcr.io/redisgrafana/coinbase-app:latest
     build:
       context: ./
-      dockerfile: ./Dockerfile-coinbase
+      dockerfile: ./Dockerfile
+    depends_on:
+      - redis
     env_file:
       - ./coinbase.env
 
   redis:
     container_name: redis
     image: ghcr.io/redisgrafana/redis-prophet:latest
-    build: ./
     ports:
       - 6379:6379
 

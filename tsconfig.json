@@ -3,7 +3,8 @@
     "target": "esnext",
     "module": "commonjs",
     "strict": true,
-    "baseUrl": "./coinbase",
+    "baseUrl": "./src",
+    "outDir": "./dist",
     "esModuleInterop": false,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
