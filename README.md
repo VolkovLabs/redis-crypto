@@ -11,7 +11,7 @@
 
 This project demonstrates how to monitor Coinbase Pro activity and cryptocurrency historical data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/), [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
 
-![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-finance-prophet/main/images/coinbase.png)
+![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-crypto/main/images/coinbase.png)
 
 Read the full store on Volkov Labs blog soon.
 
