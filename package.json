@@ -15,6 +15,7 @@
   "name": "redis-crypto",
   "scripts": {
     "build": "tsc -p ./",
+    "docker:build": "docker-compose build",
     "redis-cli": "docker exec -it redis redis-cli",
     "run:coinbase": "set -a;. ./coinbase.env; npx ts-node src/coinbase.ts",
     "start": "docker-compose pull && docker-compose up",

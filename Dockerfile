@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY ./package.json ./yarn.lock ./tsconfig.json src/ ./
 
-RUN npm install
-RUN npm run build
+RUN yarn install
+RUN yarn run build
 
 CMD [ "node", "dist/coinbase.js" ]
