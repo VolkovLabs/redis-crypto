@@ -1,8 +1,8 @@
 version: "3.4"
 
 services:
-  coinbase:
-    container_name: coinbase
+  crypto:
+    container_name: crypto
     image: ghcr.io/redisgrafana/crypto-app:latest
     build:
       context: ./
