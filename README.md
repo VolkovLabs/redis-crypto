@@ -69,8 +69,8 @@ This container can be started using Docker Compose with Grafana or Redis Enterpr
 version: "3.4"
 
 services:
-  coinbase:
-    container_name: coinbase
+  crypto:
+    container_name: crypto
     image: ghcr.io/redisgrafana/crypto-app:latest
     network_mode: host
     env_file:

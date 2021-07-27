@@ -17,7 +17,7 @@
       "type": "datasource",
       "id": "redis-datasource",
       "name": "Redis",
-      "version": "1.4.0"
+      "version": "1.5.0"
     },
     {
       "type": "panel",
@@ -43,7 +43,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1625450468865,
+  "iteration": 1627405969589,
   "links": [
     {
       "asDropdown": false,
@@ -68,7 +68,7 @@
           },
           "decimals": 2,
           "mappings": [],
-          "max": 0.74,
+          "max": 64829,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -78,11 +78,11 @@
               },
               {
                 "color": "dark-green",
-                "value": 0.25
+                "value": 35000
               },
               {
                 "color": "dark-orange",
-                "value": 0.28
+                "value": 42000
               }
             ]
           },
@@ -96,7 +96,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 16,
+      "id": 11,
       "options": {
         "reduceOptions": {
           "calcs": ["lastNotNull"],
@@ -110,11 +110,79 @@
       "pluginVersion": "8.0.3",
       "targets": [
         {
-          "panelId": 8,
+          "panelId": 12,
           "refId": "A"
         }
       ],
-      "title": "Dogecoin (DOGE)",
+      "title": "Bitcoin (BTC)",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": ["price", "$time"]
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": "-- Dashboard --",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "max": 4382,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 2000
+              },
+              {
+                "color": "dark-orange",
+                "value": 2400
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 5,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "panelId": 7,
+          "refId": "A"
+        }
+      ],
+      "title": "Etherium (ETH)",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -161,7 +229,7 @@
       "gridPos": {
         "h": 6,
         "w": 5,
-        "x": 5,
+        "x": 9,
         "y": 0
       },
       "id": 17,
@@ -229,7 +297,7 @@
       "gridPos": {
         "h": 6,
         "w": 5,
-        "x": 10,
+        "x": 14,
         "y": 0
       },
       "id": 18,
@@ -272,7 +340,7 @@
           },
           "decimals": 2,
           "mappings": [],
-          "max": 4382,
+          "max": 0.74,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -282,79 +350,11 @@
               },
               {
                 "color": "dark-green",
-                "value": 2000
+                "value": 0.25
               },
               {
                 "color": "dark-orange",
-                "value": 2400
-              }
-            ]
-          },
-          "unit": "currencyUSD"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 4,
-        "x": 15,
-        "y": 0
-      },
-      "id": 15,
-      "options": {
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
-      },
-      "pluginVersion": "8.0.3",
-      "targets": [
-        {
-          "panelId": 7,
-          "refId": "A"
-        }
-      ],
-      "title": "Etherium (ETH)",
-      "transformations": [
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": ["price", "$time"]
-            }
-          }
-        }
-      ],
-      "type": "gauge"
-    },
-    {
-      "datasource": "-- Dashboard --",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 2,
-          "mappings": [],
-          "max": 64829,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-red",
-                "value": null
-              },
-              {
-                "color": "dark-green",
-                "value": 35000
-              },
-              {
-                "color": "dark-orange",
-                "value": 37000
+                "value": 0.28
               }
             ]
           },
@@ -368,7 +368,7 @@
         "x": 19,
         "y": 0
       },
-      "id": 11,
+      "id": 16,
       "options": {
         "reduceOptions": {
           "calcs": ["lastNotNull"],
@@ -382,11 +382,11 @@
       "pluginVersion": "8.0.3",
       "targets": [
         {
-          "panelId": 12,
+          "panelId": 8,
           "refId": "A"
         }
       ],
-      "title": "Bitcoin (BTC)",
+      "title": "Dogecoin (DOGE)",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -423,11 +423,9 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 40000,
-            "axisSoftMin": 30000,
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 78,
+            "fillOpacity": 57,
             "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
@@ -447,7 +445,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "line+area"
+              "mode": "off"
             }
           },
           "decimals": 2,
@@ -458,14 +456,6 @@
               {
                 "color": "dark-red",
                 "value": null
-              },
-              {
-                "color": "dark-green",
-                "value": 33000
-              },
-              {
-                "color": "dark-orange",
-                "value": 38000
               }
             ]
           },
@@ -527,8 +517,6 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 2500,
-            "axisSoftMin": 2000,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 76,
@@ -551,7 +539,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "line+area"
+              "mode": "off"
             }
           },
           "decimals": 2,
@@ -562,14 +550,6 @@
               {
                 "color": "dark-red",
                 "value": null
-              },
-              {
-                "color": "dark-green",
-                "value": 2100
-              },
-              {
-                "color": "dark-orange",
-                "value": 2400
               }
             ]
           },
@@ -631,8 +611,6 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 0.3,
-            "axisSoftMin": 0.2,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 75,
@@ -655,7 +633,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "line+area"
+              "mode": "off"
             }
           },
           "decimals": 2,
@@ -666,14 +644,6 @@
               {
                 "color": "dark-red",
                 "value": null
-              },
-              {
-                "color": "dark-green",
-                "value": 0.22
-              },
-              {
-                "color": "dark-orange",
-                "value": 0.28
               }
             ]
           },
@@ -735,11 +705,9 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 40,
-            "axisSoftMin": 30,
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 77,
+            "fillOpacity": 51,
             "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
@@ -759,7 +727,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "line+area"
+              "mode": "off"
             }
           },
           "decimals": 2,
@@ -770,14 +738,6 @@
               {
                 "color": "dark-red",
                 "value": null
-              },
-              {
-                "color": "dark-green",
-                "value": 32
-              },
-              {
-                "color": "dark-orange",
-                "value": 38
               }
             ]
           },
@@ -839,8 +799,6 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 1.6,
-            "axisSoftMin": 1.3,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 80,
@@ -863,7 +821,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "line+area"
+              "mode": "off"
             }
           },
           "decimals": 2,
@@ -874,14 +832,6 @@
               {
                 "color": "dark-red",
                 "value": null
-              },
-              {
-                "color": "dark-green",
-                "value": 1.34
-              },
-              {
-                "color": "dark-orange",
-                "value": 1.52
               }
             ]
           },
@@ -971,5 +921,5 @@
   "timezone": "",
   "title": "Tickers",
   "uid": "3Bd882z7z",
-  "version": 56
+  "version": 60
 }
