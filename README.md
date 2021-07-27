@@ -1,17 +1,17 @@
 # Coinbase Pro activity monitoring using Redis, Prophet and Grafana
 
-![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-coinbase/main/images/coinbase.png)
+![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-crypto/main/images/coinbase.png)
 
 [![Grafana 8](https://img.shields.io/badge/Grafana-8-orange)](https://www.grafana.com)
 [![Redis Data Source](https://img.shields.io/badge/dynamic/json?color=blue&label=Redis%20Data%20Source&query=%24.version&url=https%3A%2F%2Fgrafana.com%2Fapi%2Fplugins%2Fredis-datasource)](https://grafana.com/grafana/plugins/redis-datasource)
 [![Redis Application plug-in](https://img.shields.io/badge/dynamic/json?color=blue&label=Redis%20Application%20plug-in&query=%24.version&url=https%3A%2F%2Fgrafana.com%2Fapi%2Fplugins%2Fredis-app)](https://grafana.com/grafana/plugins/redis-app)
-[![Docker](https://github.com/RedisGrafana/redis-coinbase/actions/workflows/docker.yml/badge.svg)](https://github.com/RedisGrafana/redis-coinbase/actions/workflows/docker.yml)
+[![Docker](https://github.com/RedisGrafana/redis-crypto/actions/workflows/docker.yml/badge.svg)](https://github.com/RedisGrafana/redis-crypto/actions/workflows/docker.yml)
 
 ## Introduction
 
 This project demonstrates how to monitor Coinbase Pro activity and cryptocurrency historical data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/), [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
 
-![Redis-Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-finance-prophet/main/images/redis-coinbase.png)
+![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-finance-prophet/main/images/coinbase.png)
 
 Read the full store on Volkov Labs blog soon.
 
@@ -71,7 +71,7 @@ version: "3.4"
 services:
   coinbase:
     container_name: coinbase
-    image: ghcr.io/redisgrafana/coinbase-app:latest
+    image: ghcr.io/redisgrafana/crypto-app:latest
     network_mode: host
     env_file:
       - ./coinbase.env
@@ -89,4 +89,4 @@ services:
 
 ## License
 
-- Apache License Version 2.0, see [LICENSE](https://github.com/RedisGrafana/redis-coinbase/blob/main/LICENSE).
+- Apache License Version 2.0, see [LICENSE](https://github.com/RedisGrafana/redis-crypto/blob/main/LICENSE).

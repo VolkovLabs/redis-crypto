@@ -11,7 +11,7 @@
     "@types/node": "^16.0.0"
   },
   "license": "Apache-2.0",
-  "name": "redis-coinbase",
+  "name": "redis-crypto",
   "scripts": {
     "build": "tsc -p ./",
     "redis-cli": "docker exec -it redis redis-cli",
