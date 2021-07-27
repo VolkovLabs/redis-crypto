@@ -3,18 +3,20 @@
   "dependencies": {
     "coinbase-pro-node": "^3.0.5",
     "ioredis": "^4.27.6",
-    "ts-node": "^10.0.0"
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
   },
   "description": "Coinbase activity monitoring using Redis",
   "devDependencies": {
-    "@types/ioredis": "^4.26.4",
-    "@types/node": "^16.0.0"
+    "@types/ioredis": "^4.26.6",
+    "@types/node": "^16.4.3"
   },
   "license": "Apache-2.0",
   "name": "redis-crypto",
   "scripts": {
     "build": "tsc -p ./",
     "redis-cli": "docker exec -it redis redis-cli",
+    "run:coinbase": "set -a;. ./coinbase.env; npx ts-node src/coinbase.ts",
     "start": "docker-compose pull && docker-compose up",
     "stop": "docker-compose down",
     "upgrade": "yarn upgrade --latest"

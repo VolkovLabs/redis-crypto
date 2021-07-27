@@ -110,6 +110,8 @@ async function balance(): Promise<void> {
   accounts = accounts.filter((account) => Number(account.balance));
 
   let total = 0;
+  let available = 0;
+  let hold = 0;
   let balances: { [id: string]: string } = {};
 
   await Promise.all(
@@ -123,12 +125,15 @@ async function balance(): Promise<void> {
       if (account.currency !== DefaultCurrency) {
         const ticker = await client.rest.product.getProductTicker(cur);
         balance *= Number(ticker.price);
+      } else {
+        hold += Number(account.hold);
+        available += Number(account.available);
       }
 
       await redis
         .send_command(
           "TS.ADD",
-          `balance:${cur}`,
+          `coinbase:${cur}`,
           "*",
           balance,
           "LABELS",
@@ -150,7 +155,7 @@ async function balance(): Promise<void> {
   await redis
     .send_command(
       "TS.ADD",
-      `balance:TOTAL`,
+      `coinbase:TOTAL`,
       "*",
       total,
       "LABELS",
@@ -159,13 +164,37 @@ async function balance(): Promise<void> {
     )
     .catch((err) => console.log(err));
 
+  await redis
+    .send_command(
+      "TS.ADD",
+      `coinbase:AVAILABLE`,
+      "*",
+      available,
+      "LABELS",
+      "type",
+      "available"
+    )
+    .catch((err) => console.log(err));
+
+  await redis
+    .send_command(
+      "TS.ADD",
+      `coinbase:HOLD`,
+      "*",
+      hold,
+      "LABELS",
+      "type",
+      "hold"
+    )
+    .catch((err) => console.log(err));
+
   /**
    * Balances
    */
   await redis
     .multi()
-    .del("balances")
-    .hset("balances", balances)
+    .del("coinbase")
+    .hset("coinbase", balances)
     .exec()
     .catch((err) => console.log(err));
 
