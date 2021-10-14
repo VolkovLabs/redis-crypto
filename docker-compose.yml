@@ -1,14 +1,27 @@
 version: "3.4"
 
 services:
-  crypto:
-    container_name: crypto
+  coinbase:
+    container_name: coinbase
     image: ghcr.io/redisgrafana/crypto-app:latest
     build:
       context: ./
       dockerfile: ./Dockerfile
     depends_on:
       - redis
+    command: ["node", "dist/coinbase.js"]
+    env_file:
+      - ./coinbase.env
+
+  tickers:
+    container_name: tickers
+    image: ghcr.io/redisgrafana/crypto-app:latest
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    depends_on:
+      - redis
+    command: ["node", "dist/tickers.js"]
     env_file:
       - ./coinbase.env
 
