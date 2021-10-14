@@ -1,6 +1,5 @@
-import { WebSocketChannelName, WebSocketEvent } from 'coinbase-pro-node';
 import { CoinbaseClient, RedisClient } from './clients';
-import { BalanceTimeout, DefaultCurrency, DefaultTickers, StreamLength } from './constants';
+import { BalanceTimeout, DefaultCurrency } from './constants';
 
 /**
  * Coinbase client
@@ -17,90 +16,11 @@ const redis = RedisClient();
  */
 async function main(): Promise<void> {
   /**
-   * Get Tickers Set
-   */
-  let tickers = await redis
-    .smembers("tickers")
-    .catch((err) => console.log(err));
-
-  if (!tickers || !tickers.length) {
-    tickers = DefaultTickers;
-    await redis
-      .sadd("tickers", DefaultTickers)
-      .catch((err) => console.log(err));
-    console.log("Tickers not found in the database and was added");
-  }
-
-  /**
-   * Channel
-   */
-  const channel = {
-    name: WebSocketChannelName.TICKER,
-    product_ids: tickers,
-  };
-
-  /**
-   * Subscribe on Open
-   */
-  client.ws.on(WebSocketEvent.ON_OPEN, () => {
-    console.log("Web sockets opened", channel);
-    client.ws.subscribe([channel]);
-  });
-
-  /**
-   * Disconnect if no more subscriptions on WS subscription updates
-   */
-  client.ws.on(WebSocketEvent.ON_SUBSCRIPTION_UPDATE, (subscriptions) => {
-    if (subscriptions.channels.length === 0) {
-      client.ws.disconnect();
-    }
-  });
-
-  /**
-   * Updates
-   */
-  client.ws.on(WebSocketEvent.ON_MESSAGE_TICKER, async (ticker: any) => {
-    const fields: string[] = [];
-    Object.keys(ticker).forEach((key) => {
-      fields.push(key, ticker[key]);
-    });
-
-    /**
-     * Add to Stream
-     */
-    await redis
-      .xadd(
-        `ticker:${ticker.product_id}`,
-        "MAXLEN",
-        "~",
-        Number(StreamLength),
-        "*",
-        fields
-      )
-      .catch((err) => console.log(err));
-  });
-
-  /**
-   * Connect
-   */
-  client.ws.connect();
-
-  /**
-   * Balance
-   */
-  balance().catch(console.error);
-}
-
-/**
- * Balance
- */
-async function balance(): Promise<void> {
-  /**
    * List Accounts
    */
   let accounts = await client.rest.account.listAccounts();
   if (!accounts.length) {
-    setTimeout(balance, Number(BalanceTimeout));
+    setTimeout(main, Number(BalanceTimeout));
     return console.log("Accounts not found");
   }
 
@@ -201,7 +121,7 @@ async function balance(): Promise<void> {
   /**
    * Timeout
    */
-  setTimeout(balance, Number(BalanceTimeout));
+  setTimeout(main, Number(BalanceTimeout));
 }
 
 /**
