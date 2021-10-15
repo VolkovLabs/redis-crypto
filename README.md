@@ -1,4 +1,4 @@
-# Coinbase Pro activity monitoring using Redis, Prophet and Grafana
+# Coinbase Tickers analyzing using Redis, Prophet and Grafana
 
 ![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-crypto/main/images/coinbase.png)
 
@@ -9,11 +9,18 @@
 
 ## Introduction
 
-This project demonstrates how to monitor Coinbase Pro activity and cryptocurrency historical data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/), [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
+This project demonstrates how to analyze cryptocurrency historical data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/), [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
 
 ![Redis-Crypto](https://raw.githubusercontent.com/RedisGrafana/redis-crypto/main/images/redis-crypto.png)
 
 Read the full store on Volkov Labs blog soon.
+
+## Demo
+
+Demo is available on [demo.volkovlabs.io](https://demo.volkovlabs.io):
+
+- [Redis Overview dashboard](https://demo.volkovlabs.io/d/TgibHBv7z/redis-overview?orgId=1&refresh=1h)
+- [Crypto Tickers dashboard](https://demo.volkovlabs.io/d/3Bd882z7z/crypto-tickers?orgId=1&refresh=30s)
 
 ## Requirements
 
