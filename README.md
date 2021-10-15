@@ -1,4 +1,4 @@
-# Coinbase Tickers analyzing using Redis, Prophet and Grafana
+# Analyzing cryptocurrency historical data using Redis, Prophet and Grafana
 
 ![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-crypto/main/images/coinbase.png)
 
