@@ -26,9 +26,9 @@ Demo is available on [demo.volkovlabs.io](https://demo.volkovlabs.io):
 
 - [Docker](https://docker.com) to start Redis and Grafana.
 
-## Configure and start Coinbase application
+## Configure and start application
 
-To start Coinbase application please provide Coinbase API credentials and URL for Redis instance in file `coinbase.env`. File `coinbase.env.example` can be used as example.
+To start application please provide Coinbase API credentials and URL for Redis instance in file `coinbase.env`. File `coinbase.env.example` can be used as example.
 
 ```bash
 ## Coinbase API
