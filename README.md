@@ -1,26 +1,26 @@
 # Analyzing cryptocurrency historical data using Redis, Prophet and Grafana
 
-![Coinbase](https://raw.githubusercontent.com/RedisGrafana/redis-crypto/main/images/coinbase.png)
+![Coinbase](https://raw.githubusercontent.com/volkovlabs/redis-crypto/main/images/home.png)
 
 [![Grafana 8](https://img.shields.io/badge/Grafana-8-orange)](https://www.grafana.com)
 [![Redis Data Source](https://img.shields.io/badge/dynamic/json?color=blue&label=Redis%20Data%20Source&query=%24.version&url=https%3A%2F%2Fgrafana.com%2Fapi%2Fplugins%2Fredis-datasource)](https://grafana.com/grafana/plugins/redis-datasource)
-[![Redis Application plug-in](https://img.shields.io/badge/dynamic/json?color=blue&label=Redis%20Application%20plug-in&query=%24.version&url=https%3A%2F%2Fgrafana.com%2Fapi%2Fplugins%2Fredis-app)](https://grafana.com/grafana/plugins/redis-app)
-[![Docker](https://github.com/RedisGrafana/redis-crypto/actions/workflows/docker.yml/badge.svg)](https://github.com/RedisGrafana/redis-crypto/actions/workflows/docker.yml)
+[![Redis Application plugin](https://img.shields.io/badge/dynamic/json?color=blue&label=Redis%20Application%20plug-in&query=%24.version&url=https%3A%2F%2Fgrafana.com%2Fapi%2Fplugins%2Fredis-app)](https://grafana.com/grafana/plugins/redis-app)
+[![Docker](https://github.com/volkovlabs/redis-crypto/actions/workflows/docker.yml/badge.svg)](https://github.com/volkovlabs/redis-crypto/actions/workflows/docker.yml)
 
 ## Introduction
 
-This project demonstrates how to analyze cryptocurrency historical data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/), [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
+This project demonstrates how to analyze cryptocurrency historical data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/) and [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
 
-![Redis-Crypto](https://raw.githubusercontent.com/RedisGrafana/redis-crypto/main/images/redis-crypto.png)
+![Redis-Crypto](https://raw.githubusercontent.com/volkovlabs/redis-crypto/main/images/redis-crypto.png)
 
 Read the full store on Volkov Labs blog soon.
 
 ## Demo
 
-Demo is available on [demo.volkovlabs.io](https://demo.volkovlabs.io):
+Demo is available on [crypto.volkovlabs.io](https://crypto.volkovlabs.io):
 
-- [Redis Overview dashboard](https://demo.volkovlabs.io/d/TgibHBv7z/redis-overview?orgId=1&refresh=1h)
-- [Crypto Tickers dashboard](https://demo.volkovlabs.io/d/3Bd882z7z/crypto-tickers?orgId=1&refresh=30s)
+- [Home dashboard](https://crypto.volkovlabs.io)
+- [Tickers dashboard](https://crypto.volkovlabs.io/d/3Bd882z7z/tickers)
 
 ## Requirements
 
@@ -51,14 +51,14 @@ BALANCE_TIMEOUT=30000
 
 ## Start Grafana
 
-Grafana can be started using Docker Compose or installed locally with [Redis plug-ins for Grafana](https://redisgrafana.github.io).
+Grafana can be started using Docker Compose or installed locally with [Redis plugins for Grafana](https://redisgrafana.github.io).
 
 ```bash
 docker-compose pull
 docker-compose up
 ```
 
-When starting using Docker Compose, dashboard and plug-ins will be auto-provisioned and available in Grafana.
+When starting using Docker Compose, dashboard and plugins will be auto-provisioned and available in Grafana.
 
 ## Start Redis with RedisTimeSeries, RedisGears modules
 
@@ -78,7 +78,7 @@ version: "3.4"
 services:
   crypto:
     container_name: crypto
-    image: ghcr.io/redisgrafana/crypto-app:latest
+    image: ghcr.io/volkovlabs/crypto-app:latest
     network_mode: host
     env_file:
       - ./coinbase.env
@@ -86,7 +86,7 @@ services:
 
 ## Learn more
 
-- Redis plug-ins for Grafana [Documentation](https://redisgrafana.github.io/)
+- Redis plugins for Grafana [Documentation](https://redisgrafana.github.io/)
 
 ## Contributing
 
@@ -96,4 +96,4 @@ services:
 
 ## License
 
-- Apache License Version 2.0, see [LICENSE](https://github.com/RedisGrafana/redis-crypto/blob/main/LICENSE).
+- Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/redis-crypto/blob/main/LICENSE).
