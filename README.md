@@ -9,7 +9,7 @@
 
 ## Introduction
 
-This project demonstrates how to analyze cryptocurrency historical data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/) and [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
+This project demonstrates how to analyze cryptocurrency data stored as [RedisTimeSeries](https://oss.redislabs.com/redistimeseries/) using serverless engine [RedisGears](https://oss.redislabs.com/redisgears/) and [Redis Data Source](https://github.com/RedisGrafana/grafana-redis-datasource) to visualize time series and data in Grafana.
 
 ![Redis-Crypto](https://raw.githubusercontent.com/volkovlabs/redis-crypto/main/images/redis-crypto.png)
 
