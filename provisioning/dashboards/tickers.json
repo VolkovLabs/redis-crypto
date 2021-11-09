@@ -1,23 +1,32 @@
 {
-  "__inputs": [],
-  "__requires": [
+  "__inputs": [
     {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
+      "name": "DS_REDIS",
+      "label": "Redis",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "redis-datasource",
+      "pluginName": "Redis"
+    }
+  ],
+  "__requires": [
     {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.0.3"
+      "version": "8.2.3"
     },
     {
       "type": "datasource",
       "id": "redis-datasource",
       "name": "Redis",
       "version": "1.5.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
     },
     {
       "type": "panel",
@@ -35,22 +44,28 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
+  "fiscalYearStartMonth": 0,
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1628711425527,
   "links": [
     {
       "asDropdown": false,
       "icon": "external link",
       "includeVars": true,
       "keepTime": false,
-      "tags": ["crypto"],
+      "tags": ["project"],
       "targetBlank": false,
       "title": "Crypto",
       "tooltip": "",
@@ -58,6 +73,7 @@
       "url": ""
     }
   ],
+  "liveNow": false,
   "panels": [
     {
       "datasource": "-- Dashboard --",
@@ -66,9 +82,7 @@
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 2,
           "mappings": [],
-          "max": 64829,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -77,12 +91,12 @@
                 "value": null
               },
               {
-                "color": "dark-green",
-                "value": 35000
+                "color": "dark-yellow",
+                "value": 30000
               },
               {
-                "color": "dark-orange",
-                "value": 42000
+                "color": "dark-green",
+                "value": 50000
               }
             ]
           },
@@ -98,16 +112,19 @@
       },
       "id": 11,
       "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.2.3",
       "targets": [
         {
           "panelId": 12,
@@ -125,7 +142,8 @@
           }
         }
       ],
-      "type": "gauge"
+      "transparent": true,
+      "type": "stat"
     },
     {
       "datasource": "-- Dashboard --",
@@ -134,9 +152,7 @@
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 2,
           "mappings": [],
-          "max": 4382,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -145,12 +161,12 @@
                 "value": null
               },
               {
-                "color": "dark-green",
+                "color": "dark-yellow",
                 "value": 2000
               },
               {
-                "color": "dark-orange",
-                "value": 2400
+                "color": "dark-green",
+                "value": 3600
               }
             ]
           },
@@ -166,16 +182,19 @@
       },
       "id": 15,
       "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.2.3",
       "targets": [
         {
           "panelId": 7,
@@ -193,7 +212,8 @@
           }
         }
       ],
-      "type": "gauge"
+      "transparent": true,
+      "type": "stat"
     },
     {
       "datasource": "-- Dashboard --",
@@ -202,9 +222,7 @@
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 2,
           "mappings": [],
-          "max": 2.47,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -213,12 +231,12 @@
                 "value": null
               },
               {
-                "color": "dark-green",
-                "value": 1.3
+                "color": "dark-orange",
+                "value": 2
               },
               {
-                "color": "dark-orange",
-                "value": 1.52
+                "color": "dark-green",
+                "value": 3
               }
             ]
           },
@@ -234,16 +252,19 @@
       },
       "id": 17,
       "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.2.3",
       "targets": [
         {
           "panelId": 10,
@@ -261,7 +282,8 @@
           }
         }
       ],
-      "type": "gauge"
+      "transparent": true,
+      "type": "stat"
     },
     {
       "datasource": "-- Dashboard --",
@@ -272,7 +294,6 @@
           },
           "decimals": 2,
           "mappings": [],
-          "max": 58.3,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -281,12 +302,12 @@
                 "value": null
               },
               {
-                "color": "dark-green",
-                "value": 34
+                "color": "dark-orange",
+                "value": 100
               },
               {
-                "color": "dark-orange",
-                "value": 36
+                "color": "dark-green",
+                "value": 140
               }
             ]
           },
@@ -302,16 +323,19 @@
       },
       "id": 18,
       "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.2.3",
       "targets": [
         {
           "panelId": 9,
@@ -329,7 +353,8 @@
           }
         }
       ],
-      "type": "gauge"
+      "transparent": true,
+      "type": "stat"
     },
     {
       "datasource": "-- Dashboard --",
@@ -340,7 +365,6 @@
           },
           "decimals": 2,
           "mappings": [],
-          "max": 0.74,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -349,12 +373,12 @@
                 "value": null
               },
               {
-                "color": "dark-green",
-                "value": 0.25
+                "color": "dark-orange",
+                "value": 20
               },
               {
-                "color": "dark-orange",
-                "value": 0.28
+                "color": "dark-green",
+                "value": 50
               }
             ]
           },
@@ -368,25 +392,28 @@
         "x": 19,
         "y": 0
       },
-      "id": 16,
+      "id": 19,
       "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.2.3",
       "targets": [
         {
           "panelId": 8,
           "refId": "A"
         }
       ],
-      "title": "Dogecoin (DOGE)",
+      "title": "Avalanche (AVAX)",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -397,7 +424,8 @@
           }
         }
       ],
-      "type": "gauge"
+      "transparent": true,
+      "type": "stat"
     },
     {
       "collapsed": false,
@@ -410,11 +438,11 @@
       },
       "id": 14,
       "panels": [],
-      "title": "Technical Analysis",
+      "title": "Tickers",
       "type": "row"
     },
     {
-      "datasource": "$redis",
+      "datasource": "${DS_REDIS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -425,8 +453,8 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 57,
-            "gradientMode": "opacity",
+            "fillOpacity": 10,
+            "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -456,6 +484,14 @@
               {
                 "color": "dark-red",
                 "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 30000
+              },
+              {
+                "color": "dark-green",
+                "value": 50000
               }
             ]
           },
@@ -477,7 +513,7 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "multi"
         }
       },
       "pluginVersion": "8.0.3",
@@ -485,12 +521,14 @@
         {
           "command": "xrange",
           "count": 0,
+          "field": "price",
           "keyName": "ticker:BTC-USD",
           "query": "",
           "queryType": "randomWalk",
           "refId": "A",
-          "streaming": true,
+          "streaming": false,
           "streamingDataType": "DataFrame",
+          "streamingInterval": 5000,
           "type": "command"
         }
       ],
@@ -500,15 +538,16 @@
           "id": "filterFieldsByName",
           "options": {
             "include": {
-              "names": ["price", "$time"]
+              "names": ["$time", "price", "open_24h"]
             }
           }
         }
       ],
+      "transparent": true,
       "type": "timeseries"
     },
     {
-      "datasource": "$redis",
+      "datasource": "${DS_REDIS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -519,8 +558,8 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 76,
-            "gradientMode": "opacity",
+            "fillOpacity": 10,
+            "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -571,7 +610,7 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "multi"
         }
       },
       "pluginVersion": "8.0.3",
@@ -583,7 +622,7 @@
           "query": "",
           "queryType": "randomWalk",
           "refId": "A",
-          "streaming": true,
+          "streaming": false,
           "streamingDataType": "DataFrame",
           "type": "command"
         }
@@ -594,15 +633,16 @@
           "id": "filterFieldsByName",
           "options": {
             "include": {
-              "names": ["price", "$time"]
+              "names": ["$time", "price", "open_24h"]
             }
           }
         }
       ],
+      "transparent": true,
       "type": "timeseries"
     },
     {
-      "datasource": "$redis",
+      "datasource": "${DS_REDIS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -613,14 +653,14 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 75,
-            "gradientMode": "opacity",
+            "fillOpacity": 10,
+            "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "smooth",
+            "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
@@ -657,7 +697,7 @@
         "x": 0,
         "y": 24
       },
-      "id": 8,
+      "id": 10,
       "options": {
         "legend": {
           "calcs": [],
@@ -665,7 +705,7 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "multi"
         }
       },
       "pluginVersion": "8.0.3",
@@ -673,30 +713,31 @@
         {
           "command": "xrange",
           "count": 0,
-          "keyName": "ticker:DOGE-USD",
+          "keyName": "ticker:ADA-USD",
           "query": "",
           "queryType": "randomWalk",
           "refId": "A",
-          "streaming": true,
+          "streaming": false,
           "streamingDataType": "DataFrame",
           "type": "command"
         }
       ],
-      "title": "Dogecoin (DOGE)",
+      "title": "Cardano (ADA)",
       "transformations": [
         {
           "id": "filterFieldsByName",
           "options": {
             "include": {
-              "names": ["price", "$time"]
+              "names": ["$time", "price", "open_24h"]
             }
           }
         }
       ],
+      "transparent": true,
       "type": "timeseries"
     },
     {
-      "datasource": "$redis",
+      "datasource": "${DS_REDIS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -707,8 +748,8 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 51,
-            "gradientMode": "opacity",
+            "fillOpacity": 10,
+            "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -759,7 +800,7 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "multi"
         }
       },
       "pluginVersion": "8.0.3",
@@ -771,7 +812,7 @@
           "query": "",
           "queryType": "randomWalk",
           "refId": "A",
-          "streaming": true,
+          "streaming": false,
           "streamingDataType": "DataFrame",
           "type": "command"
         }
@@ -782,15 +823,16 @@
           "id": "filterFieldsByName",
           "options": {
             "include": {
-              "names": ["price", "$time"]
+              "names": ["$time", "price", "open_24h"]
             }
           }
         }
       ],
+      "transparent": true,
       "type": "timeseries"
     },
     {
-      "datasource": "$redis",
+      "datasource": "${DS_REDIS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -801,14 +843,14 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 80,
-            "gradientMode": "opacity",
+            "fillOpacity": 10,
+            "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
@@ -845,7 +887,7 @@
         "x": 16,
         "y": 24
       },
-      "id": 10,
+      "id": 8,
       "options": {
         "legend": {
           "calcs": [],
@@ -853,7 +895,7 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "multi"
         }
       },
       "pluginVersion": "8.0.3",
@@ -861,65 +903,44 @@
         {
           "command": "xrange",
           "count": 0,
-          "keyName": "ticker:ADA-USD",
+          "keyName": "ticker:AVAX-USD",
           "query": "",
           "queryType": "randomWalk",
           "refId": "A",
-          "streaming": true,
+          "streaming": false,
           "streamingDataType": "DataFrame",
           "type": "command"
         }
       ],
-      "title": "Cardano (ADA)",
+      "title": "Avalanche (AVAX)",
       "transformations": [
         {
           "id": "filterFieldsByName",
           "options": {
             "include": {
-              "names": ["price", "$time"]
+              "names": ["$time", "price", "open_24h"]
             }
           }
         }
       ],
+      "transparent": true,
       "type": "timeseries"
     }
   ],
-  "refresh": "",
-  "schemaVersion": 30,
+  "refresh": "30s",
+  "schemaVersion": 31,
   "style": "dark",
-  "tags": ["crypto"],
+  "tags": ["project"],
   "templating": {
-    "list": [
-      {
-        "current": {
-          "selected": false,
-          "text": "Crypto",
-          "value": "Crypto"
-        },
-        "description": null,
-        "error": null,
-        "hide": 0,
-        "includeAll": false,
-        "label": "Redis",
-        "multi": false,
-        "name": "redis",
-        "options": [],
-        "query": "redis-datasource",
-        "queryValue": "",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      }
-    ]
+    "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Tickers",
   "uid": "3Bd882z7z",
-  "version": 60
+  "version": 3
 }
