@@ -3,7 +3,7 @@ version: "3.4"
 services:
   coinbase:
     container_name: coinbase
-    image: ghcr.io/redisgrafana/crypto-app:latest
+    image: ghcr.io/volkovlabs/crypto-app:latest
     build:
       context: ./
       dockerfile: ./Dockerfile
@@ -15,7 +15,7 @@ services:
 
   tickers:
     container_name: tickers
-    image: ghcr.io/redisgrafana/crypto-app:latest
+    image: ghcr.io/volkovlabs/crypto-app:latest
     build:
       context: ./
       dockerfile: ./Dockerfile
