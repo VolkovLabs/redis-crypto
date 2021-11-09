@@ -1,15 +1,15 @@
 {
-  "author": "Mikhail Volkov",
+  "author": "Volkov Labs",
   "dependencies": {
     "coinbase-pro-node": "^3.0.8",
     "ioredis": "^4.28.0",
-    "ts-node": "^10.3.0",
+    "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
   },
   "description": "Coinbase activity monitoring using Redis",
   "devDependencies": {
-    "@types/ioredis": "^4.27.7",
-    "@types/node": "^16.10.9"
+    "@types/ioredis": "^4.28.1",
+    "@types/node": "^16.11.7"
   },
   "license": "Apache-2.0",
   "name": "redis-crypto",
